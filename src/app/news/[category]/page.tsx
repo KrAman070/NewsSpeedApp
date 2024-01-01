@@ -1,6 +1,7 @@
 import fetchNews from "../../../../lib/fetchNews";
 import NewsList from "@/app/NewsList";
 import { categories } from "../../../../constants";
+import { GetStaticPaths } from 'next'
 type Props={
     params:{category:Category};
 };
@@ -30,7 +31,10 @@ export default NewsCategory;
 //         category:category
 //     }));
 // }
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{
+  paths: { params: { category: string }; }[];
+  fallback: boolean;
+}> {
   const paths = categories.map((category) => ({
     params: { category: category },
   }));
