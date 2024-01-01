@@ -3,7 +3,6 @@ import {Bars3Icon} from "@heroicons/react/24/solid";
 import Link from 'next/link';
 import NavLinks from './NavLinks';
 import dynamic from "next/dynamic";
-const SearchBox = dynamic(() => import('./SearchBox'),{ssr:false});
 const DarkMode =dynamic(()=>import('./DarkMode'),{ssr:false});
 import { redirect, useRouter } from "next/navigation";
 import {  useState,useEffect } from "react";
@@ -61,7 +60,6 @@ function Header () {
                     </div>
                     </div>
                     <NavLinks/>
-                    <SearchBox/>
                 </header>
    )
 

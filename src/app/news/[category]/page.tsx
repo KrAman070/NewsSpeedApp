@@ -25,8 +25,16 @@ async function NewsCategory({params:{category}}:Props) {
 }
 
 export default NewsCategory;
-export async function generalStaticParams(){
-    return categories.map(category=>({
-        category:category
-    }));
+// export async function generalStaticParams(){
+//     return categories.map(category=>({
+//         category:category
+//     }));
+// }
+export async function getStaticPaths() {
+  return {
+      paths: categories.map(category => ({
+          params: { category: category }
+      })),
+      fallback: false
+  };
 }
