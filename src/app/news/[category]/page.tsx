@@ -3,7 +3,7 @@ import NewsList from "@/app/NewsList";
 import { categories } from "../../../../constants";
 import { GetStaticPaths } from 'next'
 type Props={
-    params:{category:Category};
+    params:{category:string};
 };
 async function NewsCategory({params:{category}}:Props) {
     try {
