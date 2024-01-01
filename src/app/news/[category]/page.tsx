@@ -31,10 +31,12 @@ export default NewsCategory;
 //     }));
 // }
 export async function getStaticPaths() {
+  const paths = categories.map((category) => ({
+    params: { category: category },
+  }));
+
   return {
-      paths: categories.map(category => ({
-          params: { category: category }
-      })),
-      fallback: false
+    paths: paths,
+    fallback: false,
   };
 }
